@@ -11,11 +11,10 @@ for lang in 0...data_struct.tracks.length do
 	slug = data_struct.tracks[lang]["slug"]
 	active = data_struct.tracks[lang]["active"]
 	lang_hash[:"#{slug}"] = OpenStruct.new(:language => language, :slug => slug, :active => active)
-end 
+end
 
-
-def foo_list items
-  content_tag :ul do
-      items.collect {|item| concat(content_tag(:li, item))}
+lang_hash.each do |lang|
+  lang.each do |lang_link|
+    puts lang_link["language"] if lang_link["active"] == true
   end
 end
